@@ -1,0 +1,9 @@
+# tokenizer_utils.py
+
+from transformers import AutoTokenizer
+
+def load_tokenizer(model_name):
+    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+    tokenizer.pad_token = tokenizer.eos_token
+    tokenizer.add_bos_token, tokenizer.add_eos_token = True, True
+    return tokenizer
